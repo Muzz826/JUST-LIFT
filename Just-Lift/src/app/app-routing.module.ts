@@ -3,14 +3,23 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    path: 'workouts',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./workouts/workouts.module').then( m => m.WorkoutsPageModule),
+      },
+      {
+        path: ':workoutId',
+        loadChildren: () => import('./workouts/workout-exercises/workout-exercises.module').then( m => m.WorkoutExercisesPageModule),
+      }
+    ]
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: '',
+    redirectTo: 'workouts',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
@@ -19,4 +28,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
