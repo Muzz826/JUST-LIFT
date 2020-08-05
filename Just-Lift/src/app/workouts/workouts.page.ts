@@ -8,9 +8,10 @@ import { Workout } from './workout.model';
   styleUrls: ['./workouts.page.scss'],
 })
 export class WorkoutsPage implements OnInit {
-  workouts: Workout [];
+  workouts: Workout[];
 
-  constructor(private WorkoutsService: WorkoutsService) { }
+  // tslint:disable-next-line: no-shadowed-variable
+  constructor(private WorkoutsService: WorkoutsService) {}
 
   ngOnInit() {
     this.WorkoutsService.getAllWorkouts();

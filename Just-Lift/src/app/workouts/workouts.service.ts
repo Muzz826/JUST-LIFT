@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Workout } from './workout.model';
+import { preserveWhitespacesDefault } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,15 @@ export class WorkoutsService {
     {
       date: '08/03/2020',
       id: 'wo1',
-      exercises: 'bicep curls',
+      exercises: ['bicep curls', 'bench press', ],
+      reps: '5',
+      sets: '5',
+    },
+
+    {
+      date: '08/04/2020',
+      id: 'wo2',
+      exercises: ['bicep curls ', 'bench press ', ],
       reps: '5',
       sets: '5',
     }
@@ -25,6 +34,12 @@ export class WorkoutsService {
     return {...this.workouts.find(workout => {
       return workout.id === workoutId;
     })};
+  }
+
+  deleteWorkout(workoutId: string) {
+    this.workouts = this.workouts.filter(workout => {
+      return workout.id !== workoutId;
+    })
   }
 
 }
