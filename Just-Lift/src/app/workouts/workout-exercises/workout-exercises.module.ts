@@ -1,3 +1,4 @@
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,12 +9,20 @@ import { WorkoutExercisesPageRoutingModule } from './workout-exercises-routing.m
 
 import { WorkoutExercisesPage } from './workout-exercises.page';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: WorkoutExercisesPage
+  }
+];
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    WorkoutExercisesPageRoutingModule
+    WorkoutExercisesPageRoutingModule,
+    RouterModule.forChild(routes),
   ],
   declarations: [WorkoutExercisesPage]
 })
