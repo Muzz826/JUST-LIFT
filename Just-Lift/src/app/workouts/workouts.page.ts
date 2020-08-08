@@ -14,7 +14,7 @@ export class WorkoutsPage implements OnInit {
   constructor(private WorkoutsService: WorkoutsService) {}
 
   ngOnInit() {
-    this.WorkoutsService.getAllWorkouts();
+    this.workouts = this.WorkoutsService.getAllWorkouts();
   }
 
 }

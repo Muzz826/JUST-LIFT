@@ -8,24 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './workout-exercises.page.html',
   styleUrls: ['./workout-exercises.page.scss'],
 })
-export class WorkoutExercisesPage implements OnInit {
+export class WorkoutExercisesPage {
   selectedWorkout: Workout;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    // tslint:disable-next-line: no-shadowed-variable
-    private WorkoutsService: WorkoutsService, ) { }
-
-  ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(paraMap => {
-      if (!paraMap.has('workoutId')) {
-        // redirect
-        return;
-      }
-      const workoutId = paraMap.get('workoutId');
-      this.selectedWorkout = this.WorkoutsService.getWorkout(workoutId);
-
-    });
+    activateRoute: ActivatedRoute,
+    recipesService: WorkoutsService,
+    ) {
+    this.selectedWorkout = recipesService.getWorkout(activateRoute.snapshot.params.workoutId);
   }
 
 }

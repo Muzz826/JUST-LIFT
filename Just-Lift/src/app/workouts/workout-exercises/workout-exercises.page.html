@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <ion-title>{{ selectedWorkout.date }}</ion-title>\
+    <ion-title>{{ selectedWorkout?.date }}</ion-title>\
     <ion-buttons slot="start">
       
     </ion-buttons>
@@ -9,13 +9,15 @@
 <ion-grid no-padding>
   <ion-row>
     <ion-col no-padding>
-      <h1> {{ selectedWorkout.exercises }}</h1>
+      <h1> {{ selectedWorkout?.exercises }}</h1>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
       <ion-list>
-        <ion-item *ngFor="let exercise of selectedWorkout.exercises"></ion-item>
+        <ion-item *ngFor="let exercise of selectedWorkout?.exercises">
+          {{ exercise }}
+        </ion-item>
       </ion-list>
     </ion-col>
   </ion-row>
