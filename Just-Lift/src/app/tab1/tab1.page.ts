@@ -11,7 +11,7 @@ import { WorkoutServiceService } from '../workout-service.service';
 })
 export class Tab1Page {
 
-  title = "Workout";
+  title = "JUST-LIFT!";
 
 
 
@@ -26,7 +26,7 @@ constructor(
 ngOnInit() {
 }
 
-loadItems() {
+loadExercises() {
   return this.dataService.getExercises();
 }
   
