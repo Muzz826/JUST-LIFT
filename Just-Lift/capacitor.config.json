@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "Just-Lift",
+  "appName": "groceries",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
