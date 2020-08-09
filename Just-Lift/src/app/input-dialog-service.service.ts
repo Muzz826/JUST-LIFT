@@ -18,15 +18,27 @@ async showPrompt(exercise?, index?) {
         {
           name: 'name',
           type: 'text',
-          placeholder: 'name',
+          placeholder: 'Exercise Name',
           value: exercise ? exercise.name : null
         },
         {
           name: 'weight',
           type: 'number',
-          placeholder: 'weight',
+          placeholder: 'Weight Used (in LBs)',
           value: exercise ? exercise.weight : null
-        }
+        },
+        {
+          name: 'sets',
+          type: 'number',
+          placeholder: 'Sets Completed',
+          value: exercise ? exercise.weight : null
+        },
+        {
+          name: 'reps',
+          type: 'number',
+          placeholder: 'Reps Completed',
+          value: exercise ? exercise.weight : null
+        },
       ],
       buttons: [
         {
