@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  title = "About This App";
-
+  title = 'About This App';
+  name = 'Ben Muzzy';
+  github = 'https://github.com/Muzz826/JUST-LIFT';
   constructor() {}
 
 }

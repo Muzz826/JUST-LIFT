@@ -6,8 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  
-  title = "Contact Info";
+
+  title = 'Support';
+
+  githubSupport = 'https://github.com/Muzz826/JUST-LIFT/issues';
 
   constructor() {}
 

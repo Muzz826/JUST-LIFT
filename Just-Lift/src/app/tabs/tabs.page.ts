@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  tab1 = 'Workout';
+  tab2 = 'About';
+  tab3 = 'Support';
 
   constructor() {}
 
