@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      {{title}}
+      {{ title }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,8 +9,12 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Contact</ion-title>
+      <ion-title size="large">{{ title }}</ion-title>
     </ion-toolbar>
   </ion-header>
-<h2 style="text-align: center;">There is no support for this app it is just a demo app for a college assignment.</h2>
+  <div class='header'><h1>Just-LIFT! -  App Support</h1></div>
+  <div class='content'><p>To log an issue you're having this this app please use the link below to log an "issue" on my GitHub Issue page.</p>
+  <p><a href="{{ githubSupport }}">Just-Lift! - GitHub Issues</a></p>
+  </div>
+
 </ion-content>
