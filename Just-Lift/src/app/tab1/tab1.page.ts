@@ -15,9 +15,9 @@ export class Tab1Page {
 
 
 constructor(
-  private toastCtrl: ToastController, 
-  private alertController: AlertController, 
-  public dataService: WorkoutService, 
+  private toastCtrl: ToastController,
+  private alertController: AlertController,
+  public dataService: WorkoutService,
   public inputDialogService: InputDialogService) {
 
 }
@@ -28,7 +28,7 @@ ngOnInit() {
 loadExercises() {
   return this.dataService.getExercises();
 }
-  
+
 async removeExercise(exercise, index) {
   console.log('Removing ', exercise, index);
   const toast = await this.toastCtrl.create({
@@ -50,19 +50,19 @@ async removeExercise(exercise, index) {
       duration: 3000,
       position: 'top'
     });
-  
+
     toast.present();
-  
+
     this.inputDialogService.showPrompt(exercise, index);
-  
+
   }
-  
+
   addExercise() {
     console.log('Adding Exercises');
     this.inputDialogService.showPrompt();
   }
 
-  
+
 
 
 }
