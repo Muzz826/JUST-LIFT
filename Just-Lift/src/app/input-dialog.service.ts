@@ -7,13 +7,17 @@ import { AlertController } from '@ionic/angular';
 })
 export class InputDialogService {
 
-  constructor(private alertController: AlertController, public dataService: WorkoutService) { }
+  constructor(
+    private alertController: AlertController,
+    public dataService: WorkoutService,
+
+    ) { }
 
   async showPrompt(exercise?, index?) {
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
         header: exercise ? 'Edit Exercise in Workout' : 'Add Exercise',
-        message: exercise ? 'Edit exercise in the workout.' : 'Enter exercise to be added to the workouts.', 
+        message: exercise ? 'Edit exercise in the workout.' : 'Enter exercise to be added to the workouts.',
         inputs: [
           {
             name: 'name',
@@ -53,7 +57,7 @@ export class InputDialogService {
             handler: exercise => {
               console.log('Exercise added', exercise);
               if (index !== undefined) {
-                this.dataService.editExercise(exercise, index)
+                this.dataService.editExercise(exercise, index);
               }
               else {
                 this.dataService.addExercise(exercise);
