@@ -13,16 +13,16 @@
     </ion-toolbar>
   </ion-header>
   <ion-list>
-    <span class="blank-workout ion-padding-top" *ngIf="loadExercises().length === 0">
+    <span class="blank-workout ion-padding-top" *ngIf="exercises.length === 0">
       <h3>Click the button below to add a exercise to the workout!</h3>
       </span>
     <!-- Sliding item with text options on both sides -->
-    <ion-item-sliding *ngFor="let exercise of loadExercises(); let i = index">
+    <ion-item-sliding *ngFor="let exercise of exercises; let i = index">
       <ion-item>  
         <ion-label class="workout">
           <h2>
             <strong>Exercise Name:</strong> {{exercise.name}}<br />
-            <strong>Weight Used:</strong> {{exercise.weight}}<br />
+            <strong>Weight Used(in LBs):</strong> {{exercise.weight}}<br />
             <strong>Sets Completed:</strong> {{exercise.sets}}<br />
             <strong>Reps Completed in each Set:</strong>{{exercise.reps}}<br />
       </h2>

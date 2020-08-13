@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastController, AlertController } from '@ionic/angular';
+import { ToastController, AlertController, NavController } from '@ionic/angular';
 import { WorkoutService } from '../workout.service';
 import { InputDialogService } from '../input-dialog.service';
 
@@ -12,36 +12,37 @@ export class Tab1Page {
 
   title = 'JUST-LIFT!';
 
+  exercises = [];
+  errorMessage: string;
 
 
-constructor(
-  private toastCtrl: ToastController,
-  private alertController: AlertController,
-  public dataService: WorkoutService,
-  public inputDialogService: InputDialogService) {
-
+  constructor(
+    public toastCtrl: ToastController,
+    public alertController: AlertController,
+    public dataService: WorkoutService,
+    public inputDialogService: InputDialogService,
+    public navCtrl: NavController) {
+    dataService.dataChanged$.subscribe((dataChanged: boolean) => {
+      this.loadExercises();
+    });
 }
 
+// load exercises on start of the app
 ngOnInit() {
+  console.log('Loading...');
+  this.loadExercises();
 }
 
 loadExercises() {
-  return this.dataService.getExercises();
+  this.dataService.getExercises()
+  .subscribe(
+    exercises => this.exercises = exercises,
+    error => this.errorMessage = <any>error);
 }
 
-async removeExercise(exercise, index) {
-  console.log('Removing ', exercise, index);
-  const toast = await this.toastCtrl.create({
-    message: 'Removing ' + exercise.name,
-    duration: 3000,
-    position: 'top'
-  });
-
-  toast.present();
-
-  this.dataService.removeExercise(index, exercise)
-
-  }
+async removeExercise(exercise){
+  this.dataService.removeExercise(exercise);
+}
 
   async editExercise(exercise, index) {
     console.log('Editing ', exercise, index);
@@ -58,11 +59,8 @@ async removeExercise(exercise, index) {
   }
 
   addExercise() {
-    console.log('Adding Exercises');
+    console.log('Adding Exercise!');
     this.inputDialogService.showPrompt();
   }
-
-
-
 
 }
