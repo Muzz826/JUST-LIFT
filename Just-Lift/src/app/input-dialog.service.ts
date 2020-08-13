@@ -54,14 +54,18 @@ export class InputDialogService {
             }
           }, {
             text: 'Save',
-            handler: exercise => {
-              console.log('Exercise added', exercise);
-              if (index !== undefined) {
-                this.dataService.editExercise(exercise, index);
-              }
-              else {
-                this.dataService.addExercise(exercise);
-              }
+             handler: exercise => {
+            console.log('Exercise added ', exercise);
+            if (index !== undefined) {
+              exercise.name = exercise.name;
+              exercise.weight = exercise.weight;
+              exercise.sets = exercise.sets;
+              exercise.reps = exercise.reps;
+              this.dataService.editExercise(exercise, index);
+            }
+            else{
+              this.dataService.addExercise(exercise);
+            }
             }
           }
         ]
