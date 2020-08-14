@@ -49,18 +49,18 @@ export class InputDialogService {
             text: 'Cancel',
             role: 'cancel',
             cssClass: 'secondary',
-            handler: exercise => {
+            handler: data => {
               console.log('Confirm Cancel');
             }
           }, {
             text: 'Save',
-             handler: exercise => {
+             handler: data => {
             console.log('Exercise added ', exercise);
             if (index !== undefined) {
-              exercise.name = exercise.name;
-              exercise.weight = exercise.weight;
-              exercise.sets = exercise.sets;
-              exercise.reps = exercise.reps;
+              exercise.name = data.name;
+              exercise.weight = data.weight;
+              exercise.sets = data.sets;
+              exercise.reps = data.reps;
               this.dataService.editExercise(exercise, index);
             }
             else{

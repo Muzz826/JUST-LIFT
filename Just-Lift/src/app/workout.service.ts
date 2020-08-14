@@ -71,7 +71,7 @@ export class WorkoutService {
   // Used for editing exercises
   editExercise(exercise, index){
     console.log('Editing Exercise = ', exercise);
-    this.http.put(this.baseURL + '/api/exercises/' + exercise._id, exercise).subscribe(res => {
+    this.http.patch(this.baseURL + '/api/exercises/' + exercise._id, exercise).subscribe(res => {
       this.exercises[index] = res;
       this.dataChangeSubject.next(true);
     });

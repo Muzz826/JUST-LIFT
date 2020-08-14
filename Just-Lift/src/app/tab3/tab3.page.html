@@ -6,16 +6,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">{{ title }}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class='header'><h1>Just-LIFT! -  App Support</h1></div>
-  <div class='content'><p>To log an issue you're having this this app please use the link below to log an "issue" on my GitHub Issue page.</p>
-  <p><a href="{{ githubSupport }}">Just-Lift! - GitHub Issues</a></p>
-  <ion-button expand="full" (click)="openPage()">Open Page</ion-button>
-  </div>
-
+  <ion-card style="width: 40%; text-align: center;">
+    <ion-card-header>
+      <ion-card-title class="header">Just-LIFT! -  App Support</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="content">
+      To log an issue you're having with this app clicking the button below will open a web browser and take you to the Just-Lift! GitHub Issue page.
+      <ion-button expand="full" (click)="openPage()">Just-Lift!-GitHub Issue Page</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
