@@ -16,8 +16,8 @@ export class InputDialogService {
   async showPrompt(exercise?, index?) {
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
-        header: exercise ? 'Edit Exercise in Workout' : 'Add Exercise',
-        message: exercise ? 'Edit exercise in the workout.' : 'Enter exercise to be added to the workouts.',
+        header: exercise ? 'Edit Exercise' : 'Add Exercise',
+        message: exercise ? 'Editing exercise:' : 'Enter exercise to be added to the workouts.',
         inputs: [
           {
             name: 'name',

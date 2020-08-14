@@ -7,7 +7,7 @@ var methodOverride = require('method-override');
 var cors = require('cors');
 
 // Configuration
-mongoose.connect("mongodb+srv://db-admin:FUPBscObNKC3uJlZ@cluster0.rmtdz.mongodb.net/jf")
+mongoose.connect("mongodb+srv://db-admin:" + process.env.MONGO_ATLAS_PW + "@cluster0.rmtdz.mongodb.net/jf")
 .then(() => {
   console.log("Connected to database successfully!");
 })
@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-// database model
+// database model using mongoose
 var Exercise = mongoose.model('Exercise', {
     name: String,
     weight: Number,
@@ -63,14 +63,14 @@ app.post('/api/exercises', function (req, res) {
         name: req.body.name,
         weight: req.body.weight,
         sets: req.body.sets,
-        reps: req.body.sets,
+        reps: req.body.reps,
         done: false
     }, function (err, exercise) {
         if (err) {
             res.send(err);
         }
 
-        // create and return all exercises
+        // find and return all exercises
         Exercise.find(function (err, exercises) {
             if (err)
                 res.send(err);
@@ -86,7 +86,7 @@ app.put('/api/exercises/:id', function (req, res) {
         name: req.body.name,
         weight: req.body.weight,
         sets: req.body.sets,
-        reps: req.body.sets,
+        reps: req.body.reps,
     };
     console.log("Updating Exercise: ", req.params.id);
     Exercise.update({_id: req.params.id}, exercise, function (err, raw) {
@@ -122,4 +122,4 @@ app.delete('/api/exercises/:id', function (req, res) {
 
 // Start app and listen on port 3000  
 app.listen(process.env.PORT || 3000);
-console.log("MongoDB databse listening on port  - ", (process.env.PORT || 3000));
+console.log("MongoDB Atlas database listening on port  - ", (process.env.PORT || 3000));
