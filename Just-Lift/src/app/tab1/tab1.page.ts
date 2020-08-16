@@ -37,7 +37,7 @@ loadExercises() {
   this.dataService.getExercises()
   .subscribe(
     exercises => this.exercises = exercises,
-    error => this.errorMessage = <any>error);
+    error => this.errorMessage = (error as any));
 }
 
 async removeExercise(exercise){

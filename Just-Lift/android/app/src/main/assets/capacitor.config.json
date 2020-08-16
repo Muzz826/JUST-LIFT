@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "io.just-lift.ionic",
   "appName": "Just-Lift",
   "bundledWebRuntime": false,
   "npmClient": "npm",

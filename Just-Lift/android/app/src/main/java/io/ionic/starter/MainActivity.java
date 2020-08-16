@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package io.just-lift.ionic;
 
 import android.os.Bundle;
 
