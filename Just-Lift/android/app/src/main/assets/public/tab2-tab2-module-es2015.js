@@ -129,6 +129,7 @@ let Tab2Page = class Tab2Page {
         this.github = 'https://github.com/Muzz826/JUST-LIFT';
     }
 };
+Tab2Page.ctorParameters = () => [];
 Tab2Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-tab2',
