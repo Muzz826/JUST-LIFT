@@ -9,7 +9,7 @@ import { InputDialogService } from '../input-dialog.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
+// variable for changing title of app
   title = 'JUST-LIFT!';
 
   exercises = [];
@@ -43,7 +43,7 @@ loadExercises() {
 async removeExercise(exercise){
   this.dataService.removeExercise(exercise);
 }
-
+// edit any poart of inputted exercise
   async editExercise(exercise, index) {
     console.log('Editing ', exercise, index);
     const toast = await this.toastCtrl.create({
@@ -57,7 +57,7 @@ async removeExercise(exercise){
     this.inputDialogService.showPrompt(exercise, index);
 
   }
-
+// displays prompt to be able to add exercises
   addExercise() {
     console.log('Adding Exercise!');
     this.inputDialogService.showPrompt();
