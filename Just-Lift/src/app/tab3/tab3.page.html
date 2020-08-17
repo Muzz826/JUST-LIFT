@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       {{ title }}
     </ion-title>
@@ -12,14 +12,17 @@
       <ion-title size="large">{{ title }}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card style="width: 40%; text-align: center;">
+  <div id="ion-card">
+  <ion-card color="white">
     <ion-card-header>
       <ion-card-title class="header">Just-LIFT! -  App Support</ion-card-title>
     </ion-card-header>
     <ion-card-content class="content">
-      To log an issue you're having with this app clicking the button below will open a web browser and take you to the Just-Lift! GitHub Issue page.
-      <ion-button expand="full" (click)="openPage()">Just-Lift!-GitHub Issue Page</ion-button>
+      <p>To log an issue you're having with this app clicking the button below.</p>
+      <!--Below buttons triggers the Browser Plugin-->
+      <ion-button expand="full" (click)="openPage()">Just-Lift!-GitHub Support Page</ion-button>
     </ion-card-content>
   </ion-card>
+  </div>
 </ion-content>
 

@@ -1,7 +1,7 @@
 {
   "appId": "io.just-lift.ionic",
   "appName": "Just-Lift",
-  "bundledWebRuntime": false,
+  "bundledWebRuntime": true,
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
