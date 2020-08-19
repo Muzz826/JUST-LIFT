@@ -7,7 +7,7 @@ var methodOverride = require('method-override');
 var cors = require('cors');
 
 // Configuration
-mongoose.connect("mongodb+srv://db-admin:FUPBscObNKC3uJlZ@cluster0.rmtdz.mongodb.net/jf")
+mongoose.connect("mongodb+srv://db-admin:" + process.env.MONGO_ATLAS_PW + "@cluster0.rmtdz.mongodb.net/jf")
 .then(() => {
   console.log("Connected to database successfully!");
 })
