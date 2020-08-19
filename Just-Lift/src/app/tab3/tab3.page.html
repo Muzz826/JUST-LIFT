@@ -1,15 +1,19 @@
 <ion-header [translucent]="true">
+  <!--Android Toolbar-->
   <ion-toolbar color="primary">
     <ion-title>
+      <!--Variable for the title found in tab3.page.ts-->
       {{ title }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
+<ion-content [fullscreen]="true">
   <ion-header collapse="condense">
+    <!--iOS Toolbar-->
     <ion-toolbar>
-      <ion-title size="large">{{ title }}</ion-title>
+      <!--Variable for the title found in tab3.page.ts-->
+      <ion-title size="large" color="primary">{{ title }}</ion-title>
     </ion-toolbar>
   </ion-header>
   <div id="ion-card">
@@ -25,4 +29,3 @@
   </ion-card>
   </div>
 </ion-content>
-
