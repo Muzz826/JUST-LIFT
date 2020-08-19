@@ -1,10 +1,10 @@
 // Set up
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
-const cors = require('cors');
+var express = require('express');
+var app = express();
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var cors = require('cors');
 
 // Configuration
 mongoose.connect("mongodb+srv://db-admin:FUPBscObNKC3uJlZ@cluster0.rmtdz.mongodb.net/jf")
@@ -63,7 +63,7 @@ app.post('/api/exercises', function (req, res) {
         name: req.body.name,
         weight: req.body.weight,
         sets: req.body.sets,
-        reps: req.body.sets,
+        reps: req.body.reps,
         done: false
     }, function (err, exercise) {
         if (err) {
@@ -86,7 +86,7 @@ app.put('/api/exercises/:id', function (req, res) {
         name: req.body.name,
         weight: req.body.weight,
         sets: req.body.sets,
-        reps: req.body.sets,
+        reps: req.body.reps,
     };
     console.log("Updating Exercise: ", req.params.id);
     Exercise.update({_id: req.params.id}, exercise, function (err, raw) {

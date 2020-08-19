@@ -16,8 +16,9 @@ export class InputDialogService {
   async showPrompt(exercise?, index?) {
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
-        header: exercise ? 'Edit Exercise' : 'Add Exercise',
-        message: exercise ? 'Editing exercise:' : 'Enter exercise to be added to the workouts.',
+        header: exercise ? 'Edit Exercise in Workout' : 'Add Exercise',
+        message: exercise ? 'Edit exercise in the workout.' : 'Enter exercise to be added to the workouts.',
+        // input field names for exercises on tab1.page.html
         inputs: [
           {
             name: 'name',
@@ -49,18 +50,19 @@ export class InputDialogService {
             text: 'Cancel',
             role: 'cancel',
             cssClass: 'secondary',
-            handler: data => {
+            handler: exercise => {
               console.log('Confirm Cancel');
             }
           }, {
             text: 'Save',
-             handler: data => {
+             handler: exercise => {
             console.log('Exercise added ', exercise);
+            // clicking save creates the below entries in the database
             if (index !== undefined) {
-              exercise.name = data.name;
-              exercise.weight = data.weight;
-              exercise.sets = data.sets;
-              exercise.reps = data.reps;
+              exercise.name = exercise.name;
+              exercise.weight = exercise.weight;
+              exercise.sets = exercise.sets;
+              exercise.reps = exercise.reps;
               this.dataService.editExercise(exercise, index);
             }
             else{

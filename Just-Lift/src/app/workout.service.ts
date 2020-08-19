@@ -15,7 +15,7 @@ export class WorkoutService {
   dataChanged$: Observable<boolean>;
 
   private dataChangeSubject: Subject<boolean>;
-
+// local baseURL
   baseURL = 'http://localhost:3000';
 
   constructor(public http: HttpClient) {
@@ -37,7 +37,7 @@ export class WorkoutService {
     const body = res;
     return (body || {}) as object[];
   }
-
+// logic used for error handling...
   private handleError(error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
@@ -71,7 +71,7 @@ export class WorkoutService {
   // Used for editing exercises
   editExercise(exercise, index){
     console.log('Editing Exercise = ', exercise);
-    this.http.patch(this.baseURL + '/api/exercises/' + exercise._id, exercise).subscribe(res => {
+    this.http.put(this.baseURL + '/api/exercises/' + exercise._id, exercise).subscribe(res => {
       this.exercises[index] = res;
       this.dataChangeSubject.next(true);
     });
