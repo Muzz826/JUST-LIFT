@@ -1,3 +1,4 @@
+import { environment, } from './../../environments/environment';
 import { Component } from '@angular/core';
 import { ToastController, AlertController, NavController } from '@ionic/angular';
 import { WorkoutService } from '../workout.service';
@@ -9,7 +10,7 @@ import { InputDialogService } from '../input-dialog.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
+  // title variable
   title = 'JUST-LIFT!';
 
   exercises = [];
@@ -22,14 +23,19 @@ export class Tab1Page {
     public dataService: WorkoutService,
     public inputDialogService: InputDialogService,
     public navCtrl: NavController) {
-    dataService.dataChanged$.subscribe((dataChanged: boolean) => {
+      // Console logs false if using dev env and true if using prod
+      console.log(environment.production);
+      // Console logs 'this is dev' if dev & 'this is prod' if prod
+      console.log(environment.message);
+      dataService.dataChanged$.subscribe((dataChanged: boolean) => {
       this.loadExercises();
     });
 }
 
-// load exercises on start of the app
+
 ngOnInit() {
   console.log('Loading...');
+  // if in production web browser dev console will show true
   this.loadExercises();
 }
 

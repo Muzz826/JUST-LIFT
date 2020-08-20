@@ -1,3 +1,4 @@
+import { environment, } from './../../environments/environment';
 import { Component } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 // Capacitor Browser Plugin being used
@@ -15,8 +16,11 @@ export class Tab3Page {
   githubSupport = 'https://github.com/Muzz826/JUST-LIFT/issues';
 
   constructor() {
-
-    // Capacitor Brower Plugin start
+    // Logs false if using dev env and true if using prod
+    console.log(environment.production);
+    // Console logs 'this is dev' if dev & 'this is prod' if prod
+    console.log(environment.message);
+    // Capacitor Browser Plugin start
     Browser.addListener('browserPageLoaded', () =>{
       console.log('browserPageLoaded event called');
     });
